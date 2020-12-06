@@ -1,9 +1,6 @@
-import 'package:blankapp/ui/screens/home/home_screen.dart';
-import 'package:blankapp/ui/screens/login/login_screen.dart';
+import 'package:blankapp/ui/screens/login/presentation_screen.dart';
 import 'package:flutter/material.dart';
-
 import 'routes.dart';
-
 import 'ui/shared/theme.dart';
 
 void main() => runApp(MyApp());
@@ -15,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'BankApp',
       theme: lightTheme(),
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginScreen.routeName,
+      initialRoute: PresentationScreen.routeName,
       routes: appRoutes,
     );
   }

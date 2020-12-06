@@ -1,39 +1,87 @@
-import 'package:blankapp/models/slider_model.dart';
-import 'package:blankapp/ui/widgets/dots_widgets.dart';
-import 'package:blankapp/ui/widgets/slides_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
 
 class LoginScreen extends StatelessWidget {
   static String routeName = 'loginScreen';
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => new SliderModel(),
-      child: Scaffold(
-        body: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: Slides()
-              ),              
-              Dots(),
-              Center(
-                child: Row(
-                  children: [
-                    RaisedButton(
-                      onPressed: () => {},
-                      child: Text('Button Clicks'),
-                    ),
-                  ],
-                ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(''),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [            
+            SingleChildScrollView(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Welcome Login',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 60,),
+                      Row(
+                        children: [
+                          _loginFacebook(context),
+                          _loginGoogle(context),
+                        ],
+                      ),
+                    ],
+                  ),
+                  
+                ],
               ),
-            ],
-          )
+            ),
+          ],
         ),
       ),
     );
   }
+  
+  Widget _loginFacebook(BuildContext context) {
+    return OutlineButton (
+      child: Container(        
+        width: 120,
+        padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+        child: Image.asset(
+          'assets/images/f.png',
+          height: 20,
+          width: 10,
+        )
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0)
+      ),          
+      color: Colors.white,
+      textColor: Color(0XFF77869E),
+      onPressed: (){},          
+    );
+  }
+
+  Widget _loginGoogle(BuildContext context) {
+    return OutlineButton (
+      child: Container(        
+        width: 120,
+        padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+        child: Image.asset(
+          'assets/images/g.png',
+          height: 20,
+          width: 20,
+        )
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0)
+      ),          
+      color: Colors.white,
+      textColor: Color(0XFF77869E),
+      onPressed: (){},          
+    );
+  }
+
 }
